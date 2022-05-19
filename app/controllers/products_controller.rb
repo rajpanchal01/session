@@ -4,9 +4,9 @@ class ProductsController < ApplicationController
   def add_to_cart
     if session[:product_id]== nil 
       session[:product_id]=[]
-    else
-    session[:product_id] <<params[:id] 
     end
+    session[:product_id] <<params[:id] 
+    
     redirect_to show_cart_products_path
   end
   def show_cart
