@@ -14,7 +14,8 @@ class ProductsController < ApplicationController
   end
   def delete_from_cart
     if session[:product_id].include?(params[:id])
-      session[:product_id].pop[params[:id]]
+      #session[:product_id].(session[:product_id].find(params[:id]))
+      session[:product_id].delete_at(session[:product_id].index(params[:id])) 
     end
     redirect_to show_cart_products_path
   end
